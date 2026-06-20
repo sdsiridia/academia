@@ -1,0 +1,12 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.main{
+    &__izquierdo{
+        display: flex;
+        flex-direction: column;
+        img{
+        width: 100%;    
+    }    
+}    
+}
