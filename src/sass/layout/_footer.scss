@@ -1,0 +1,18 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+@use '../base/animations' as *;
+
+footer{
+    background:v.$orange;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    a{
+    background-color: v.$orange_2;
+    color: white; 
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 12px;
+    }
+}

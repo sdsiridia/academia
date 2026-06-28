@@ -35,6 +35,7 @@ header,
 .ul_links {
     width: 100%;
     background-color: v.$orange_2;
+    z-index: 1;
     position: absolute;
     top: v.$altura_header;
     left: 0;

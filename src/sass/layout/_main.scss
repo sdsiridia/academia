@@ -25,38 +25,12 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        }    
-    &__description{
-        margin: auto;
-        padding:5px;
-        background: v.$gradient-border;
-        aspect-ratio: 10/16;
-        border-radius: 16px;
-        width: 200px;
-        position: relative;
-        .card{
-            background: v.$card-color;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-            padding: 20px 16px;
-            h2{
-                text-align: center;
-                margin-bottom: 20px;
-                color:v.$white;
-            }
-            .text{
-                text-align: center;
-                font-size: .70rem;
-                margin-bottom: 20px;
-                color:v.$white;
-            }
+        &-3{
+            background-color: v.$card-color;
+            padding: 20px;
+
         }
-    }
+        }    
     &__button{
         margin:20px auto;
     // display: inline-block;
@@ -90,6 +64,134 @@
     }
     }
 }
+.main__description{
+        margin: auto;
+        padding:5px;
+        background: v.$gradient-border;
+        aspect-ratio: 10/16;
+        border-radius: 16px;
+        width: 200px;
+        position: relative;
+        .card{
+            background: v.$card-color;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            padding: 20px 16px;
+            h2{
+                text-align: center;
+                margin-bottom: 20px;
+                color:v.$white;
+            }
+            .text{
+                text-align: center;
+                font-size: .70rem;
+                margin-bottom: 20px;
+                color:v.$white;
+            }
+        }
+    }
+
+    
+.main__description-2{
+        margin: 16px;
+        padding:5px;
+        background: v.$gradient-border;
+        // aspect-ratio: 10/16;
+        border-radius: 16px;
+        width: auto;
+        position: relative;
+        .card-2{
+            background: v.$card-color;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            padding: 20px 16px;
+            h2{
+                text-align: center;
+                margin-bottom: 20px;
+                color:v.$white;
+            }
+            .text{
+                text-align: center;
+                font-size: .70rem;
+                margin-bottom: 20px;
+                color:v.$white;
+            }
+        }
+    }
+
+.tarjetas{
+    display: flex;
+    flex-direction: column;
+}
+    
+.tarjeta {
+    // flex:50%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    max-width: 350px;
+    margin: 20px auto;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    
+    /* Centrar contenido */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    // align-items: center;
+    justify-content: center;
+    .tarjeta-descripcion{
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+    a{
+        color: white; 
+        text-decoration: none;
+        
+    }
+}
+
+.tarjeta .tarjeta-footer{
+    background-color: gray;
+    padding: 16px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.tarjeta:hover {
+    /* Efecto al pasar el mouse */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-titulo {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.tarjeta-descripcion {
+    font-size: 1rem;
+    color: #7f8c8d;
+    line-height: 1.5;
+    margin: 0;
+}
+
+
 
 // @keyframes glowing{
 //     0%{
