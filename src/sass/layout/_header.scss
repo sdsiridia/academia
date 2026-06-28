@@ -7,7 +7,15 @@ header,
     height: v.$altura_header;
     background-color: v.$orange;
     margin-bottom: 40px;
+    
 }
+.imagen-header{
+        display: none;
+        @include m.breakpoint(tablet){
+            display: block;
+            width: 50%;
+        }
+    }
 .navbar {
     height: 100%;
     display: flex;
@@ -57,7 +65,7 @@ header,
     font-weight: bold;
 }
 
-@media (min-width:768px){
+@include m.breakpoint(tablet){
     .label_hamburguesa {
         display: none;
     }
@@ -66,17 +74,56 @@ header,
         width: auto;
         height: auto;
         flex-direction: row;
-        gap: 2rem;
+        gap: 8px;
     }
     .link{
-        font-size: 1.2rem;
+        font-size: 1rem;
         transition: all .3s;
         padding: .2rem .7rem;
     }
-    .link:hover{
-        background-color: v.$orange_2;
-    }
+    // .link:hover{
+    //     // background-color: v.$orange_2;
+    //     background-color: #ffcc00;
+    //     transform: translateY(-5px);
+    // }
+
 }
+@include m.breakpoint(desktop){
+        .fancy-button{
+    display: block;
+    width: 100%;
+    // border: 1px solid #AAA;
+    text-decoration: none;
+    color: #222;
+    // padding: 6px 10px;
+    // margin-top: 10px;
+    text-align: center;
+    position: relative;
+    transition: color .3s;
+}
+
+.fancy-button::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background-color: v.$orange_1;
+    z-index: -1;
+
+    left: 100%;
+    width: 0%;
+    transition: .3s;
+}
+.fancy-button:hover{
+    color: white;
+}
+.fancy-button:hover::before{
+    left: 0%;
+    width: 100%;
+    transition: width .3s;
+}
+}
+
 
 // Boton para hacer la animación del menu hamburguesa
 button{
