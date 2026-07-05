@@ -167,6 +167,9 @@
                 font-size: .70rem;
                 margin-bottom: 20px;
                 color:v.$white;
+                @include m.breakpoint(tablet){
+                    font-size: 1rem;
+                }
             }
         }
     }
@@ -174,6 +177,14 @@
 .tarjetas{
     display: flex;
     flex-direction: column;
+    @include m.breakpoint(tablet){
+        flex-wrap: wrap;
+        flex-direction: row;
+        max-width: 768px;
+        // gap: 10px;
+        justify-content: center;
+        // align-items: center;
+    }
 }
     
 .tarjeta {
@@ -193,6 +204,17 @@
     gap: 12px;
     // align-items: center;
     justify-content: center;
+    @include m.breakpoint(tablet){
+        // 
+        // flex: 1;
+        
+        // width: 100px;
+        // height: 100px;
+        justify-content: space-between;
+        }
+        .forzar-salto {
+        flex-basis: 100%; /* Fuerza a este div y a los siguientes a bajar de línea */
+        }
     .tarjeta-descripcion{
         flex-grow: 1;
         flex-shrink: 1;
@@ -224,6 +246,9 @@
     font-size: 1.5rem;
     color: #2c3e50;
     margin: 0;
+    @include m.breakpoint(tablet){
+        font-size: 1.2rem;
+    }
 }
 
 .tarjeta-descripcion {
@@ -231,6 +256,9 @@
     color: #7f8c8d;
     line-height: 1.5;
     margin: 0;
+    @include m.breakpoint(tablet){
+        font-size: 1rem;
+    }
 }
 
 
