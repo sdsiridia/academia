@@ -6,6 +6,12 @@
     &__container{
         display: flex;
         flex-direction: column;
+        @include m.breakpoint(desktop){
+        // height: 100px;
+        max-width: 1200px;
+        margin:0 auto;
+        paddding:0 16px;
+    }
         img{
         width: 100%; 
         // .bienvenido{
@@ -30,7 +36,15 @@
             padding: 20px;
 
         }
-        }    
+        }
+    &__container-2, &__container-3, &__container-4{
+        @include m.breakpoint(desktop){
+        // height: 100px;
+        max-width: 1200px;
+        margin:0 auto;
+        paddding:0 16px;
+    }
+    }    
     &__button{
         margin:20px auto;
     // display: inline-block;
@@ -76,66 +90,166 @@
 
     }
 }
-.main__description{
-        margin: auto;
-        padding:5px;
-        background: v.$gradient-border;
-        aspect-ratio: 10/16;
-        border-radius: 16px;
-        width: 200px;
-        position: relative;
-        .card{
-            background: v.$card-color;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-            padding: 20px 16px;
-            h2{
-                text-align: center;
-                margin-bottom: 20px;
-                color:v.$white;
-            }
-            .text{
-                text-align: center;
-                font-size: .70rem;
-                margin-bottom: 20px;
-                color:v.$white;
-                
-    }
-        }
-        .imagen-main{
-        display: none;
-        }       
-        @include m.breakpoint(tablet){
-            .imagen-main{
-            display: block;
-            width: 400px;
-            border-radius: 12px;
-            }
-            display: flex;
-            align-items: center;
+
+.main__description {
+    margin: auto;
+    padding: 5px;
+    background: v.$gradient-border;
+    aspect-ratio: 10/16;
+    border-radius: 16px;
+    width: 200px;
+    position: relative;
+
+    .card {
+        background: v.$card-color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%; 
+        flex: 1 1 auto;
+        align-self: stretch; /* En móvil funciona verticalmente */
+        border-radius: 12px;
+        padding: 20px 16px;
+
+        @include m.breakpoint(tablet) {
             justify-content: space-between;
-            padding: 16px;
-            width: 100%;
-            // min-height: 400px;
-            height: auto;
-            aspect-ratio: auto;
-            gap: 10px;
-            margin-bottom: 30px;
+            margin: 0;
+            // hace que todos midan el mismo ancho
+            flex: 0 0 calc(50% - 5px); 
+            
+            // aca estaba el problema del alto de las tarjetas, al poner height: 100% en el padre, los hijos no se estiraban, por eso se pone height: auto y align-self: stretch
+            height: auto;          /* Rompe el 100% de móvil para que el padre controle el alto */
+            align-self: stretch;   /* Obliga a la tarjeta a estirarse de arriba a abajo del padre */
+        }
 
-            .card{
-                height: 100%;
-                min-height: 400px;
-                justify-content: space-between;
-                
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: v.$white;
+        }
 
+        .text {
+            text-align: center;
+            font-size: .70rem;
+            margin-bottom: 20px;
+            color: v.$white;
+        }
+    }
+
+    .card:last-child {
+        display: none;
+    }
+
+    @include m.breakpoint(tablet) {
+        display: flex;
+        flex-direction: row;  
+        align-items: stretch; /* Fuerza a TODOS los hijos a medir lo mismo de alto */
+        justify-content: space-between;
+        padding: 16px;
+        width: 100%;          
+        aspect-ratio: auto;   
+        gap: 10px;            
+        margin-bottom: 30px;
+        
+        // Control de altura en el padre
+        height: auto;         
+        min-height: 400px;    
+
+        .card:last-child {
+            display: flex;    
+            justify-content: center;
+            align-items: center;
+
+
+            .imagen-main {
+                width: 100%;
+                border-radius: 12px;
+                margin: 0;
+                padding: 0;
             }
+        }
     }
 }
+
+
+
+
+// .main__description{
+//         margin: auto;
+//         padding:5px;
+//         background: v.$gradient-border;
+//         aspect-ratio: 10/16;
+//         border-radius: 16px;
+//         width: 200px;
+//         position: relative;
+//         .card{
+//             background: v.$card-color;
+//             display: flex;
+//             flex-direction: column;
+//             align-items: center;
+//             justify-content: center;
+//             width: 100%;
+//             height: 100%;
+//             flex: 1 1 auto;
+//             align-self: stretch;
+//             border-radius: 12px;
+//             padding: 20px 16px;
+//             @include m.breakpoint(tablet){
+//                 display: flex;
+//                 flex-direction: column;
+//                 align-items: center;
+//                 justify-content: space-between;
+//                 height: 100%;
+//                 min-height: 400px;
+//                 justify-content: space-between;
+//                 flex:auto;
+//                 margin: 0;
+//             }
+//             h2{
+//                 text-align: center;
+//                 margin-bottom: 20px;
+//                 color:v.$white;
+//             }
+//             .text{
+//                 text-align: center;
+//                 font-size: .70rem;
+//                 margin-bottom: 20px;
+//                 color:v.$white;
+                
+//     }
+//         }
+//         .card:last-child{
+//             display: none;
+//         }
+//         @include m.breakpoint(tablet){
+//             .card:last-child{
+//             display: block;
+//             justify-content: center;
+//             align-items: center;
+//             .imagen-main{
+//                 width: 100%;
+//                 border-radius: 12px;
+//                 margin:0;
+//                 padding:0;
+//             }
+//             }
+//             display: flex;
+//             align-items: center;
+//             justify-content: space-between;
+//             padding: 16px;
+//             width: 100%;
+//             // min-height: 400px;
+//             // height: auto;
+//             aspect-ratio: auto;
+//             gap: 10px;
+//             margin-bottom: 30px;
+//             height: 100%;
+//             flex: 0 0 50%;
+            
+//     }
+// }
 
 
 
@@ -180,10 +294,10 @@
     @include m.breakpoint(tablet){
         flex-wrap: wrap;
         flex-direction: row;
-        max-width: 768px;
+        // max-width: 768px;
         // gap: 10px;
         justify-content: center;
-        // align-items: center;
+        align-items: center;
     }
 }
     
@@ -198,7 +312,6 @@
     width: 100%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     
-    /* Centrar contenido */
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -264,7 +377,15 @@
 
 
 // @keyframes glowing{
-//     0%{
+//     
+    // @include m.breakpoint(tablet){
+    //     flex-wrap: wrap;
+    //     flex-direction: row;
+    //     max-width: 768px;
+    //     // gap: 10px;
+    //     justify-content: center;
+    //     // align-items: center;
+    // }0%{
 //         background-position: 0 0;
 //     }
 //     50%{
@@ -280,12 +401,22 @@
 //     // margin:20px auto;
 //     // // display: inline-block;
 //     // line-height: 1;
-//     // // text-align: center;
-//     // font-size: 14px;
+//   //     // font-size: 14px;
 //     // font-weight: bold;
 //     // background-color: black;
 //     // cursor:pointer;
-//     // border: none;
+//
+    // @include m.breakpoint(tablet){
+        // 
+        // flex: 1;
+        
+        // width: 100px;
+        // height: 100px;
+        // justify-content: space-between;
+        // }
+        // .forzar-salto {
+        // flex-basis: 100%; /* Fuerza a este div y a los siguientes a bajar de línea */
+        // }     // border: none;
 //     // width: auto;
 //     // position: relative;
 //     // border-radius: 12px;
@@ -303,9 +434,15 @@
 //     //     height: 100%;
 //     //     background: linear-gradient(45deg, red,blue,deeppink,blue,red,blue,deeppink,blue);
 //     //     background-size: 800%;
-//     //     border-radius: 10px;
+//     //
+    // @include m.breakpoint(tablet){
+    //     font-size: 1.2rem;
+    // }     border-radius: 10px;
 //     //     filter: blur(8px);
-//     //     animation: glowing 20s linear infinite;
+//     //     animation: glowing 20s linear i
+    // @include m.breakpoint(tablet){
+    //     font-size: 1rem;
+    // }nfinite;
 //     // }
 // }
 

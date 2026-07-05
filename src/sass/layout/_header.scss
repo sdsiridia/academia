@@ -7,6 +7,12 @@ header,
     height: v.$altura_header;
     background-color: v.$orange;
     margin-bottom: 40px;
+    @include m.breakpoint(desktop){
+        // height: 100px;
+        max-width: 1200px;
+        margin:0 auto;
+        paddding:0 16px;
+    }
     
 }
 .imagen-header{
@@ -21,8 +27,12 @@ header,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     padding: 0 v.$padding_left_rigt;
+    @include m.breakpoint(tablet){
+        padding:0 6px;
+
+    }
 }
 .menu_hamburguesa{
     display: none;
@@ -81,6 +91,9 @@ header,
         transition: all .3s;
         padding: .2rem .7rem;
     }
+    .li_links a{
+        font-size: 0.85rem;
+    }
     // .link:hover{
     //     // background-color: v.$orange_2;
     //     background-color: #ffcc00;
@@ -121,6 +134,10 @@ header,
     left: 0%;
     width: 100%;
     transition: width .3s;
+}
+.li_links a{
+    font-size: 1.2rem;
+    color: v.$white;
 }
 }
 
